@@ -10,7 +10,7 @@ from datetime import datetime
 
 baud_rate = 9600
 
-s = serial.Serial('COM3', baud_rate, timeout=5)
+s = serial.Serial('COM3', baud_rate, timeout=None)
 
 while True:  # infinite loop, keep running
 
@@ -20,6 +20,8 @@ while True:  # infinite loop, keep running
     # Write to serial port, set data encoding. 
     d = s.write(bytes(str(data_send), 'utf-8'))
     print(f"{datetime.now()}: Send >>> {data_send} ({d} bytes)")
+
+    s.flush()
 
     # Read from serial port. 
     d = s.readline().decode("utf-8").strip()
