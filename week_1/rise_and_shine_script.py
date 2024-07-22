@@ -34,4 +34,4 @@ while True:  # infinite loop, keep running
     except ValueError:
         # Retry if the integer d is invalid
         print(f"{datetime.now()}: Error: Invalid integer '{d}' received from Arduino. Naughty Arduino")
-    time.sleep(1)
+
